@@ -59,14 +59,10 @@ class ArtisticTurtle:
         self.clear_screen()        
 
 def main():
-    print('Start? (y): ',end='')
-    start = input().lower()
-    if start == 'y':
-        while True:
-            art_turtle = ArtisticTurtle()
-            art_turtle.draw_geometry(random.randint(50,100))
-    else:
-        pass
+    while True:
+        art_turtle = ArtisticTurtle()
+        art_turtle.draw_geometry(random.randint(50,100))
+    
 if __name__ == "__main__":
     main()
 
