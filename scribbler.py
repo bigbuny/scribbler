@@ -37,7 +37,7 @@ class ArtisticTurtle:
         
 
     def get_positions(self):
-        return (self.path_length, t.pos())
+        return self.path_length
 
     def test(self, n):
         m = 1
