@@ -8,7 +8,6 @@ import time
 class ArtisticTurtle:
     def __init__(self):
         self.turtle = t.Turtle()
-        # self.turtle.speed(0)
         self.path_length = 0
 
     def operator(self, i: int, type_: str):
@@ -26,18 +25,8 @@ class ArtisticTurtle:
             elif operator_directional == 1:
                 self.turtle.left(operator_angular); self.path_length += i
 
-    def clear_screen(self):
-        os.system('clear')
-        self.turtle.reset()
-        animation = "|/-\\"
-        for i in range(20):
-            sys.stdout.write("\r" + "Loading... " + animation[i % len(animation)])
-            sys.stdout.flush()
-            time.sleep(0.1)
-        
-
     def get_positions(self):
-        return self.path_length
+        return (self.path_length, t.pos() )
 
     def test(self, n):
         m = 1
@@ -47,6 +36,15 @@ class ArtisticTurtle:
             self.operator(m, "displacement")
             m += 1
 
+    def clear_screen(self):
+        os.system('clear')
+        self.turtle.reset()
+        animation = "|/-\\"
+        for i in range(20):
+            sys.stdout.write("\r" + "Loading... " + animation[i % len(animation)])
+            time.sleep(0.1)
+            sys.stdout.flush()
+
     def draw_geometry(self, m):
         self.turtle.speed(0)
 
@@ -55,14 +53,12 @@ class ArtisticTurtle:
             self.turtle.width(random.uniform(1, 10))
             self.operator(i, "displacement")
             self.operator(i, "angular")
-
-        self.clear_screen()        
+        self.clear_screen()
 
 def main():
+    print('Start? (y): ',end='')
     while True:
         art_turtle = ArtisticTurtle()
         art_turtle.draw_geometry(random.randint(50,100))
-    
 if __name__ == "__main__":
     main()
-
